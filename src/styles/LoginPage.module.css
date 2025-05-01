@@ -1,0 +1,298 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+  overflow: hidden;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 20vw;
+  max-width: 400px;
+}
+
+.divider {
+  width: 2px;
+  background-color: var(--steel-blue);
+  height: 60%;
+  align-self: center;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+  padding: 2vh 4vw;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.loginText {
+  font-family: 'Glacial Indifference', 'Aileron', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--english-violet);
+  margin-bottom: 1rem;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.inputGroup {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 2vh 3rem 2vh 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--steel-blue);
+  border-radius: 15px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.floatingLabel {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  color: gray;
+  pointer-events: none;
+  transition: 0.3s ease-out;
+  font-size: 1rem;
+  transform: translateY(-50%);
+}
+
+.input:focus ~ .floatingLabel,
+.input:not(:placeholder-shown) ~ .floatingLabel {
+  top: 0;
+  font-size: 0.85rem;
+  color: var(--steel-blue);
+  background-color: var(--white);
+  padding: 0 0.3rem;
+  transform: translateY(-50%);
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--steel-blue);
+  display: flex;
+  align-items: center;
+}
+
+.forgotPassword {
+  text-align: left !important;
+  width: 100%;
+  max-width: 400px;
+  margin: -1vh auto 1vh;
+  padding-left: 0.3rem;
+}
+
+.forgotPassword a {
+  text-decoration: none;
+  color: var(--steel-blue);
+}
+
+.signup {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.signup a {
+  text-decoration: none;
+  color: var(--steel-blue);
+}
+
+.button {
+  width: 100%;
+  font-style: normal;
+  padding: 1.5vh 0vh;
+  font-size: 1rem;
+  border-radius: 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(135deg, var(--steel-blue), var(--english-violet));
+  color: white;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  /* Remove transform: scale() */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, var(--steel-blue), var(--steel-blue) 40%, var(--english-violet));
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+/* Hide browser default password toggle */
+.input::-ms-reveal,
+.input::-webkit-credentials-auto-fill-button,
+.input::-webkit-password-toggle-button {
+  display: none;
+}
+
+.loadingIcon{
+  display: inline-flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.loader {
+  width: 1.1rem;
+  height: 1.1rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: var(--aqua);
+  animation:
+    l20-1 0.8s infinite linear alternate,
+    l20-2 1.6s infinite linear;
+}
+@keyframes l20-1{
+   0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+   12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+   25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+   50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+   75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+   100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+@keyframes l20-2{
+  0%    {transform:scaleY(1)  rotate(0deg)}
+  49.99%{transform:scaleY(1)  rotate(135deg)}
+  50%   {transform:scaleY(-1) rotate(0deg)}
+  100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1080px) {
+  .loginText {
+    font-size: 3vw;
+  }
+  .logo {
+    width: 30vw;
+  }
+  .button{
+    font-style: normal;
+    padding: 1.5vh 0vh;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    padding: 1vh;
+  }
+
+  .left, .divider {
+    display: none;
+  }
+
+  .right {
+    width: 90%;
+    gap: 1.5vh;
+    padding: 1vh;
+  }
+
+  .loginText {
+    display: none;
+  }
+
+  form {
+    max-width: 90%;
+  }
+
+  .input, .floatingLabel {
+    font-size: 1rem;
+  }
+
+  .forgotPassword, .signup {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0;
+  }
+
+  .button {
+    font-size: 1rem;
+    font-style: normal;
+    padding: 1.5vh 0vh;
+    max-width: 100%;
+  }
+
+  .right::before {
+    content: "";
+    background-image: url("../assets/logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 50vw;
+    height: 10vh;
+    display: block;
+    margin-bottom: 2vh;
+  }
+}
+
+/* Add these styles to your existing CSS if you don't already have them */
+
+/* Optional: Add this for the smooth animation transitions */
+.loadingIcon {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loader {
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #ffffff;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* If you don't already have hover effects on your button */
+.button:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,417 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+  overflow-y: auto;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo {
+  width: 20vw;
+  max-width: 400px;
+}
+
+.divider {
+  width: 2px;
+  background-color: var(--steel-blue);
+  height: 60%;
+  align-self: center;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.signupText {
+  font-family: 'Glacial Indifference', 'Aileron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--english-violet);
+  margin-bottom: 1rem;
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Profile Image and Name Section */
+.profileSection {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0.8rem;
+  align-items: start;
+  width: -webkit-fill-available;
+}
+
+.cropImageContainer {
+  grid-row: span 2;
+  aspect-ratio: 1/1;
+  border-radius: 15px;
+  width: 100px;
+  height: 100px;
+}
+
+/* Input Groups */
+.inputGroup {
+  position: relative;
+  width: 100%;
+}
+
+/* Input Fields */
+.inputGroup input,
+.inputGroup select {
+  width: 100%;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  border: 2px solid var(--steel-blue);
+  border-radius: 12px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  height: 42px;
+}
+
+.inputGroup input[type="date"] {
+  padding: 0.7rem 1rem;
+}
+
+/* Floating Labels */
+.floatingLabel {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  color: gray;
+  pointer-events: none;
+  transition: 0.3s ease-out;
+  font-size: 0.9rem;
+  transform: translateY(-50%);
+}
+
+.inputGroup input:focus ~ .floatingLabel,
+.inputGroup input:not(:placeholder-shown) ~ .floatingLabel,
+.inputGroup select:focus ~ .floatingLabel,
+.inputGroup select:not(:placeholder-shown) ~ .floatingLabel {
+  top: 0;
+  font-size: 0.75rem;
+  color: var(--steel-blue);
+  background-color: var(--white);
+  padding: 0 0.3rem;
+  transform: translateY(-50%);
+}
+
+/* Password Fields */
+.passwordInput {
+  padding-right: 3rem !important;
+}
+
+.passwordIcons {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.eyeIcon {
+  color: var(--steel-blue);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* Password Strength */
+.passwordStrengthContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.strengthLabel {
+  font-size: 0.8rem;
+  color: var(--english-violet);
+}
+
+.passwordStrengthBar {
+  flex: 1;
+  height: 0.5vh;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100vw;
+}
+
+.passwordStrengthBar div {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.strengthText {
+  font-size: 0.9rem;
+  font-weight: 300;
+  min-width: 1.5rem;
+}
+
+/* File Upload */
+.fileUploadLabel {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--steel-blue);
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+  height: 42px;
+  line-height: 1.2;
+  min-width: 40%;
+  width: 100%;
+}
+
+.fileUploadLabel:hover {
+  background-color: var(--english-violet);
+}
+
+.fileUploadContainer{
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.fileName {
+  font-size: 0.8rem;
+  color: var(--english-violet);
+  min-width: 50%;
+  min-width: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-wrap: anywhere;
+}
+
+.uploadFileText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fileUploadIcon{
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* Checkbox */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  /* margin: 0.5rem 0; */
+}
+
+.passwordStrengthDiv{
+  position:static;
+  width: 100%;
+}
+
+.checkboxGroup input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--english-violet);
+}
+
+.checkboxGroup label {
+  font-size: 0.9rem;
+  color: var(--english-violet);
+  cursor: pointer;
+}
+
+/* Submit Button */
+.submitButton {
+  width: 100%;
+  padding: 0.9rem 0;
+  font-size: 0.95rem;
+  font-weight: bold;
+  background-color: var(--english-violet);
+  color: white;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.submitButton:hover {
+  background-color: var(--steel-blue);
+}
+
+/* Login Link */
+.loginLink {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.loginLink a {
+  color: var(--steel-blue);
+  text-decoration: none;
+}
+
+/* Section Divider */
+.sectionDivider {
+  border: none;
+  height: 1px;
+  background-color: var(--steel-blue);
+  /* margin: 1rem 0; */
+  opacity: 0.3;
+}
+
+.dropdown {
+  position: absolute;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #e0e7ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 4px;
+}
+
+.dropdownItem {
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dropdownItem:hover {
+  background-color: #f8f9ff;
+}
+
+.inputGroup {
+  position: relative;
+}
+
+.highlighted {
+  background-color: #f0f2f5;
+}
+
+/* Responsive Design */
+@media (max-width: 1080px) {
+  .signupText {
+    font-size: 1.6rem;
+  }
+  .logo {
+    width: 25vw;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left, .divider {
+    display: none;
+  }
+
+  .signupText{
+    display: none;
+  }
+  .right {
+    width: 100%;
+    gap: 1rem;
+    padding: 1.5rem 20vh;
+    min-height: auto;
+  }
+
+  .profileSection {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .cropImageContainer {
+    width: 100px;
+    margin-bottom: 1rem;
+    grid-row: auto;
+  }
+
+  .form {
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .right::before {
+    content: "";
+    background-image: url("../assets/logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 28vw;
+    height: 8vh;
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+/* Hides default password reveal icon (for Chrome, Edge, Safari) */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-password-toggle-button {
+  display: none !important;
+}
+
+/* Add these button styles to match the login button */
+.submitButton {
+  width: 100%;
+  padding: 0.9rem 0;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--steel-blue), var(--english-violet));
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 0.5rem;
+}
+
+.submitButton:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, var(--steel-blue), var(--steel-blue) 40%, var(--english-violet));
+}
+
+.errorContainer {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.errorMessage {
+  color: #ff3e36;
+  font-size: 14px;
+  text-align: center;
+  margin: 0;
+}

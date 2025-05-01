@@ -1,0 +1,486 @@
+.container {
+  padding: 2rem;
+  background-color: #f8fafc;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin-left: 220px;
+}
+
+/* Top Bar Styles */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--english-violet);
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.searchContainer {
+  position: relative;
+  width: 30rem;
+  margin-right: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 0.8rem 1.5rem 0.8rem 3rem;
+  border: 1px solid var(--aqua);
+  border-radius: 30px;
+  width: 100%;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background-color: var(--white);
+  color: var(--english-violet);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--light-blue);
+}
+
+.searchContainer svg {
+  position: absolute;
+  left: 1rem;
+  color: var(--light-blue);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+/* Filter and Pagination Row */
+.filterPaginationRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/*.filterContainer {*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  gap: 0.5rem;*/
+/*}*/
+
+.filterIcon {
+  color: #64748b;
+  font-size: 1.2rem;
+}
+/* Add this to your AdminUsers.module.css */
+.filterDropdown {
+  position: relative;
+  user-select: none;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 8px;
+  background-color: white;
+  border: 1px solid var(--aqua);
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--english-violet);
+  transition: all 0.2s;
+}
+
+.filterButton:hover {
+  background-color: #f8f9fa;
+}
+
+.filterButton .rotated {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.filterDropdown:hover .rotated {
+  transform: rotate(180deg);
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 240px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.filterDropdown:hover .dropdownContent {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownSection {
+  padding: 16px;
+}
+
+.dropdownSection h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--english-violet);
+  font-weight: 500;
+}
+
+.filterOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filterOption input[type="radio"] {
+  margin: 0;
+}
+
+
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paginationNav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: none;
+  border: 0px solid #e1e4e8;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #24292e;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 32px;
+  height: 32px;
+}
+
+.paginationNav:hover:not(:disabled) {
+  border-color: var(--white);
+  background-color: var(--light-gray);
+  transform: scale(1.1);
+}
+
+.paginationNav:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.paginationPages {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.pageButton {
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: 0px solid #e1e4e8;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--english-violet);
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageButton:hover {
+  border-color: var(--white);
+  background-color: var(--light-gray);
+  transform: scale(1.1);
+}
+
+.pageButton.activePage {
+  background-color: var(--soft-blue);
+  color: var(--aqua);
+  border-color: var(--soft-blue);
+}
+
+.ellipsis {
+  display: flex;
+  align-items: center;
+  padding: 0 0.25rem;
+  color: #586069;
+  font-size: 0.85rem;
+}
+
+/* Table Styles */
+.tableContainer {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.userTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.userTable th {
+  background-color: #9bbed445;
+  color: var(--english-violet);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+.userTable td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+.userTable tr:hover td {
+  background-color: #f8fafc;
+}
+
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.userEmail {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.userLocation {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.roleBadge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.adminBadge {
+  background-color: #ecfdf5;
+  color: #059669;
+}
+
+.recruiterBadge {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.applicantBadge {
+  background-color: #fef2f2;
+  color: #dc2626;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background-color: #f1f5f9;
+  color: #334155;
+}
+
+.deleteButton:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.noResults {
+  text-align: center;
+  padding: 2rem;
+  color: #64748b;
+}
+
+/* Delete Modal Styles */
+.deleteModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.deleteModal {
+  background-color: white;
+  border-radius: 6px;
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.deleteModal h3 {
+  margin-top: 0;
+  color: #24292e;
+  font-size: 1.25rem;
+}
+
+.deleteWarning {
+  color: #586069;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+
+.deleteInstruction {
+  color: #24292e;
+  margin: 1.5rem 0 0.5rem;
+  font-weight: 500;
+}
+
+.confirmationInput {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.confirmationInput:focus {
+  outline: none;
+  border-color: #0366d6;
+  box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.1);
+}
+
+.deleteModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.cancelButton {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #24292e;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #f6f8fa;
+}
+
+.deleteConfirmButton {
+  padding: 0.5rem 1rem;
+  background-color: #d73a49;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deleteConfirmButton:hover:not(:disabled) {
+  background-color: #cb2431;
+}
+
+.deleteConfirmButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.loadingAnimation {
+  width: 100%;
+  height: 100%;
+  padding-left: 5rem;
+  border: none;
+  margin: 0;
+}

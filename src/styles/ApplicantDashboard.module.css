@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  flex-grow: 1;
+  margin-left: 220px; 
+  overflow-y: auto;
+  transition: margin-left 0.3s ease; /* Smooth transition for sidebar toggle */
+}
+
+
+
+
+/* Sidebar responsive adjustments */
+@media (max-width: 1080px) {
+  .sidebar {
+      width: 200px;
+  }
+  .content {
+      margin-left: 200px; /* Match reduced sidebar width */
+  }
+  .logo {
+      width: 150px;
+  }
+}
+
+@media (max-width: 720px) {
+  /* Mobile view - sidebar becomes overlay */
+  .sidebar {
+      width: 180px;
+      position: fixed;
+      z-index: 100;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+  }
+  .sidebar.open {
+      transform: translateX(0);
+  }
+  .content {
+      margin-left: 60px;
+  }
+  .logo {
+      width: 140px;
+  }
+  
+  /* Add overlay when sidebar is open */
+  .sidebar-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 99;
+      display: none;
+  }
+  .sidebar.open + .sidebar-overlay {
+      display: block;
+  }
+}
+
+/* For screens smaller than 400px (extra small devices) */
+@media (max-width: 400px) {
+  .sidebar {
+      width: 100%; /* Full width sidebar on very small screens */
+  }
+}

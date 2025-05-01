@@ -1,0 +1,270 @@
+/* Job Popup Styles */
+.jobPopupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .jobPopupContainer {
+    background: #ffffff;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .jobPopupHeader {
+    background: #413C58;
+    color: #ffffff;
+    padding: 0.5rem 1rem 0.5rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .jobPopupTitle {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: inherit;
+  }
+  
+  .jobPopupSubtitle {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    color: #e6e5e5;
+  }
+  
+  .jobPopupCloseButton {
+    border: none;
+    background-color: transparent;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: 0.75rem;
+    padding: 0;
+    margin-top: auto;
+  }
+  
+  .jobPopupCloseIcon {
+    font-size: 1.2rem;
+  }
+  
+  .jobPopupCloseButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Form Styles */
+  .jobPopupForm {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 94%;
+    gap: 0vh;
+    justify-content: unset;
+    align-items: unset;
+    text-align: start;
+    margin-left: 0;
+  }
+  
+  .jobPopupSection {
+    margin-bottom: 0.3rem;
+  }
+  
+  .jobPopupSectionHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  
+  .jobPopupSectionTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #413C58;
+    margin: 0;
+  }
+  
+  .jobPopupSectionIcon {
+    margin-right: 0.75rem;
+    color: #4f46e5;
+    font-size: 1.25rem !important;
+  }
+  
+  .jobPopupFormRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .jobPopupFormGroup {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+  
+  .jobPopupLabel {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #413C58;
+    margin-bottom: 0.5rem;
+    justify-content: flex-start;
+  }
+  
+  .jobPopupLabelIcon {
+    margin-right: 0.5rem;
+    color: #718EBF;
+    font-size: 1rem !important;
+  }
+  
+  .jobPopupInput {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    background: #F5F7FA;
+    color: #413C58;
+  }
+  
+  .jobPopupInput:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+    background: #ffffff;
+  }
+  
+  .jobPopupTextarea {
+    min-height: 100px;
+    resize: vertical;
+    line-height: 1.5;
+    width: 100%;
+  }
+  
+  .jobPopupSalaryInput {
+    display: flex;
+    align-items: center;
+    background: #F5F7FA;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .jobPopupSalaryPrefix {
+    padding: 0 0.75rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    color: #413C58;
+    font-weight: 500;
+  }
+  
+  .jobPopupSalaryInputField {
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  
+  .jobPopupFormActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  
+  .jobPopupCancelButton {
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #718EBF;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+  }
+  
+  .jobPopupCancelButton:hover {
+    background: #F5F7FA;
+  }
+  
+  .jobPopupSubmitButton {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    background: #4f46e5;
+    color: #ffffff;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .jobPopupSubmitButton:hover {
+    background: #1814F3;
+  }
+  
+  .jobPopupButtonIcon {
+    font-size: 1rem !important;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .jobPopupContainer {
+      max-width: 95%;
+    }
+    
+    .jobPopupForm {
+      padding: 1rem;
+      max-width: 100%;
+    }
+    
+    .jobPopupFormRow {
+      grid-template-columns: 1fr;
+    }
+    
+    .jobPopupHeader {
+      padding: 1rem;
+    }
+    
+    .jobPopupFormActions {
+      flex-direction: column-reverse;
+      gap: 0.75rem;
+    }
+    
+    .jobPopupCancelButton,
+    .jobPopupSubmitButton {
+      width: 100%;
+    }
+  }

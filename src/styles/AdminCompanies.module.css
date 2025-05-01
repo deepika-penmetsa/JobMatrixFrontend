@@ -1,0 +1,1115 @@
+/* AdminCompanies.module.css */
+
+/* Main Container */
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 95.2vh;
+  padding: 30px 20px 20px 20px;
+  margin: 0 0 0 220px;
+  max-width: 90%;
+  background-color: var(--aqua);
+}
+
+.commonTopBar{
+  display: grid;
+  grid-template-rows: 0.6fr;
+  width: 100%;
+  background-color: var(--aqua);
+
+}
+
+/* Top Bar */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--english-violet);
+  margin: 0 0 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.searchContainer {
+  position: relative;
+  width: 30%;
+  /*margin-right: 3rem;*/
+  display: flex;
+  align-items: center;
+}
+
+
+.searchInput {
+  padding: 0.7rem 1.5rem 0.7rem 3rem;
+  border: 1px solid var(--aqua);
+  border-radius: 30px;
+  width: 100%;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background-color: var(--white);
+  color: var(--english-violet);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--light-blue);
+}
+
+.searchContainer svg {
+  position: absolute;
+  left: 1rem;
+  color: var(--light-blue);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+
+/* Stats Overview */
+.statsOverview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  background-color: white;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  font-size: 20px;
+}
+
+.totalIcon {
+  background-color: rgba(58, 112, 227, 0.1);
+  color: #3a70e3;
+}
+
+.jobsIcon {
+  background-color: rgba(132, 86, 236, 0.1);
+  color: #8456ec;
+}
+
+.activeIcon {
+  background-color: rgba(50, 202, 143, 0.1);
+  color: #32ca8f;
+}
+
+.inactiveIcon {
+  background-color: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+}
+
+.statContent h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #333;
+}
+
+.statContent p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* Actions Bar */
+.actionsBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filtersWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filterDropdown {
+  position: relative;
+  user-select: none;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.filterButton:hover {
+  background-color: #f8f9fa;
+}
+
+.filterButton .rotated {
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.filterDropdown:hover .rotated {
+  transform: rotate(180deg);
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 240px;
+  margin-top: 4px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.filterDropdown:hover .dropdownContent {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdownSection {
+  padding: 16px;
+}
+
+.dropdownSection h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.filterOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filterOption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.filterOption input[type="radio"] {
+  margin: 0;
+}
+
+.sortButtons {
+  display: flex;
+  gap: 6px;
+}
+
+.sortButton {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #4b5563;
+}
+
+.sortButton:hover {
+  background-color: #f8f9fa;
+}
+
+.sortButton.active {
+  background-color: #3a70e3;
+  color: white;
+  border-color: #3a70e3;
+}
+
+/* Companies Grid */
+.companiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  overflow: auto;
+}
+
+.companyCard {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  height: 300px;
+}
+
+.companyCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.companyHeader {
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  border-bottom: 1px solid var(--aqua);
+}
+
+.logoWrapper {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.companyLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid #f1f1f1;
+}
+
+.companyInfo {
+  flex: 1;
+}
+
+.companyName {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--english-violet);
+}
+
+.companyTags {
+  font-size: 13px;
+  color: #6b7280;
+  display: inline-block;
+  background-color: #f3f4f6;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.companyDescription {
+  padding: 16px;
+  flex: 1;
+}
+
+.companyDescription p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.companyStats {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.stat svg {
+  color: var(--steel-blue);
+  font-size: 20px;
+}
+
+.cardActions {
+  padding: 16px;
+  min-width: 20%;
+  justify-items: flex-end;
+
+}
+
+.viewButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  border: none;
+  background-color: #3a70e3;
+  color: var(--aqua);
+  min-width: 35%;
+}
+
+.viewButton:hover {
+  background-color: var(--blue);
+  color: var(--aqua);
+}
+
+.viewButton svg {
+  color: var(--aqua);
+  font-size: 20px;
+}
+
+
+
+/* Empty State */
+.emptyState {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+}
+
+.emptyState h3 {
+  margin: 0 0 8px 0;
+  color: #374151;
+  font-size: 18px;
+}
+
+.clearButton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  border: none;
+  background-color: var(--aqua);
+  color: var(--english-violet);
+  max-height: fit-content;
+}
+
+.clearButton:hover{
+  color: var(--aqua);
+  background-color: var(--english-violet);
+}
+
+.clearButton svg{
+  font-size: 20px;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* Company Modal */
+.companyModal {
+  width: 90%;
+  max-width: 900px;
+  max-height: 90vh;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.modalHeader h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: #333;
+}
+
+.modalContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+}
+
+/* Section Tabs */
+.sectionTabs {
+  display: flex;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f9fafb;
+}
+
+.tabButton {
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.tabButton:hover {
+  color: #3a70e3;
+}
+
+.tabButton.active {
+  color: #3a70e3;
+  border-bottom-color: #3a70e3;
+}
+
+.tabButton svg {
+  font-size: 16px;
+}
+
+/* Overview Tab */
+.overviewTab {
+  padding: 24px;
+}
+
+.companyProfile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.profileImage {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileDetails {
+  flex: 1;
+  min-width: 300px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.detailItem svg {
+  font-size: 20px;
+  color: #8a94a6;
+}
+
+.detailItem h4 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.detailItem p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.aboutCompany {
+  margin-top: 24px;
+}
+
+.aboutCompany h3 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.aboutCompany p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* Recruiters Tab */
+.recruitersTab {
+  padding: 24px;
+}
+
+.recruitersTabs {
+  display: flex;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.recruiterTabButton {
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6b7280;
+  transition: all 0.2s;
+}
+
+.recruiterTabButton.active {
+  color: #3a70e3;
+  border-bottom-color: #3a70e3;
+}
+
+.recruitersTabContent {
+  padding-top: 16px;
+}
+
+.recruitersTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recruitersTable th,
+.recruitersTable td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.recruitersTable th {
+  background-color: #f9fafb;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.recruitersTable tr {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.recruiterInfo {
+  display: flex;
+  align-items: center;
+}
+
+.avatarImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.recruiterName {
+  font-weight: 500;
+  color: #333;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.recruiterEmail {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.recruiterPhone {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #d1fae5;
+  color: #047857;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.inActiveStatusBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color:#fecaca;
+  color: darkred;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.jobCountBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #f3f4f6;
+  color: #6b7280;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.jobCountBadge.hasJobs {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.emptyTabContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.emptyTabContent svg {
+  margin-bottom: 16px;
+  color: #d1d5db;
+}
+
+.emptyTabContent p {
+  margin: 0 0 16px 0;
+}
+
+/* Settings Tab */
+.settingsTab {
+  padding: 24px;
+}
+
+.settingsSection {
+  margin-bottom: 32px;
+}
+
+.settingsSectionTitle {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.dangerCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #f8d7da;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background-color: rgba(248, 215, 218, 0.1);
+}
+
+.dangerCardContent h4 {
+  color: #dc3545;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.dangerCardContent p {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.deleteCompanyButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.deleteCompanyButton:hover {
+  background-color: #c82333;
+}
+
+/* Delete Confirmation Modal */
+.confirmationModal {
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.warningMessage {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 24px;
+}
+
+.warningIcon {
+  flex-shrink: 0;
+}
+
+.warningText p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.warningText p strong {
+  color: #333;
+}
+
+.affectedResources {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 0 24px 20px;
+}
+
+.affectedResources h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.resourcesList {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.resourcesList li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.resourceIcon {
+  color: #8a94a6;
+}
+
+.confirmationInput {
+  margin-bottom: 20px;
+  padding: 0 24px;
+}
+
+.confirmationInput p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.confirmInput {
+  width: 95%;
+  padding: 10px 10px;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  font-size: 15px;
+}
+
+.confirmInput:focus {
+  outline: none;
+  border-color: #3a70e3;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 16px 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.cancelButton {
+  padding: 10px 16px;
+  background-color: white;
+  color: #4b5563;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton:hover {
+  background-color: #f8f9fa;
+}
+
+.deleteConfirmButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.deleteConfirmButton:hover:not(.disabled) {
+  background-color: #dc2626;
+}
+
+.deleteConfirmButton.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #ef4444;
+}
+
+.errorMessage {
+  padding: 16px;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.loadingAnimation {
+  width: 100%;
+  height: 100%;
+  padding-left: 5rem;
+  border: none;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .statsOverview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .companyModal {
+    width: 95%;
+  }
+
+  .profileDetails {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .topBar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .searchContainer {
+    width: 100%;
+  }
+
+  .actionsBar {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+
+  .filtersWrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .companiesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTabs {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+  }
+
+  .tabButton {
+    padding: 16px 12px;
+  }
+
+  .recruitersTable {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .companyProfile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profileImage {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .statsOverview {
+    grid-template-columns: 1fr;
+  }
+
+  .statCard {
+    padding: 12px;
+  }
+
+  .sortButtons {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .sortButton {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 0;
+  }
+
+  .modalHeader h2 {
+    font-size: 18px;
+  }
+
+  .companyModal {
+    max-height: 95vh;
+  }
+
+  .modalContent {
+    padding: 0;
+  }
+
+  .overviewTab,
+  .recruitersTab,
+  .settingsTab {
+    padding: 16px;
+  }
+
+  .detailItem {
+    gap: 8px;
+  }
+
+  .recruitersTabContent {
+    padding-top: 8px;
+  }
+
+  .confirmationModal {
+    width: 95%;
+  }
+}

@@ -1,0 +1,66 @@
+# IDE and editor directories
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Dependency directories
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Build directories
+dist/
+build/
+out/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local development files
+*.local
+
+# Testing
+coverage/
+.nyc_output/
+
+# Vite cache
+.cache/
+.temp/
+
+# ESLint cache
+.eslintcache
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint and stylelint cache
+.eslintcache
+.stylelintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Optional lockfile
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

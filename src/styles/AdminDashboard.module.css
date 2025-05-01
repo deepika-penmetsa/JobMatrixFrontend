@@ -1,0 +1,446 @@
+.container {
+  padding: 2rem 3rem;
+  background-color: var(--aqua);
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin-left: 220px;
+  color: var(--english-violet);
+}
+
+/* Sticky Header with Dashboard Title and Tabs */
+.headerContainer {
+  position: sticky;
+  top: 0;
+  background: var(--aqua);
+  z-index: 100;
+  padding: 2rem 0;
+}
+
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+.mainTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--english-violet);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.headerTabs {
+  display: flex;
+  gap: 0.5rem;
+  background: var(--white);
+  border-radius: 8px;
+  padding: 0.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.headerTab {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-radius: 6px;
+  color: var(--english-violet);
+}
+
+.headerTab:hover {
+  background: var(--aqua);
+  color: var(--english-violet);
+}
+
+.activeHeaderTab {
+  background: var(--soft-blue);
+  color: white;
+}
+
+/* Main Content Sections */
+.section {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  scroll-margin-top: 100px;
+}
+
+/* Overview Section */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--light-blue), var(--blue));
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.05);
+}
+
+.info h2 {
+  margin: 0 0 0.2rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--english-violet);
+  line-height: 1;
+}
+
+.info p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--light-blue);
+  font-weight: 500;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.newThisWeek {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.trendUp {
+  color: #10b981;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.trendDown {
+  color: #ef4444;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+/* Analytics Section */
+.analyticsContainer {
+  margin-top: 2rem;
+}
+
+.analyticsSection {
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--english-violet);
+}
+
+.sectionIcon {
+  font-size: 1.8rem;
+  color: var(--english-violet);
+}
+
+/* Breakdown Grid */
+.breakdownGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.breakdownCard {
+  background: var(--white);
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.breakdownCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.breakdownIcon {
+  font-size: 1.8rem;
+  color: var(--english-violet);
+  margin-bottom: 0.5rem;
+}
+
+.breakdownValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--english-violet);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.breakdownLabel {
+  font-size: 0.9rem;
+  color: var(--light-blue);
+  font-weight: 500;
+}
+
+/* Distribution Chart */
+.distributionContainer {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.distributionItem {
+  margin-bottom: 1.5rem;
+}
+
+.distributionItem:last-child {
+  margin-bottom: 0;
+}
+
+.distributionHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  align-items: center;
+}
+
+.distributionName {
+  font-weight: 500;
+}
+
+.distributionCount {
+  font-weight: 600;
+  color: var(--english-violet);
+  font-size: 0.9rem;
+}
+
+.distributionBarContainer {
+  width: 100%;
+  height: 10px;
+  background: #f5f5f5;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.distributionBar {
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #a2b7db, var(--light-blue));
+}
+
+.activitySection {
+  margin-top: 3rem;
+}
+
+.activityGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.activityCard {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+.activityCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.activityIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.activityInfo h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--english-violet);
+  line-height: 1;
+}
+
+.activityInfo p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--light-blue);
+  font-weight: 500;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 1rem;
+}
+
+.retryButton {
+  padding: 0.5rem 1.5rem;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retryButton:hover {
+  background: var(--soft-blue);
+  transform: translateY(-1px);
+}
+
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+
+.loadingAnimation {
+  width: 100%;
+  height: 100%;
+  padding-left: 5rem;
+  border: none;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .container {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+  
+  .mainHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .headerTabs {
+    width: 100%;
+  }
+  
+  .headerTab {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardGrid, .breakdownGrid, .activityGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .sectionTitle {
+    font-size: 1.3rem;
+  }
+  
+  .sectionIcon {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animation Enhancements */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card, .activityCard, .breakdownCard {
+  animation: fadeIn 0.4s ease forwards;
+  opacity: 0;
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Smooth scrolling for html */
+html {
+  scroll-behavior: smooth;
+}

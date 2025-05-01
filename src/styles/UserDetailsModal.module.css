@@ -1,0 +1,438 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+  
+  .modalContainer {
+    background-color: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .modalHeader {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #f8fafc;
+  }
+  
+  .userHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .profileImage {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .userTitle {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .userTitle h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #1e293b;
+  }
+  
+  .userMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+  
+  .userEmail {
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+  
+  .roleBadge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .adminBadge {
+    background-color: #ecfdf5;
+    color: #059669;
+  }
+  
+  .recruiterBadge {
+    background-color: #eff6ff;
+    color: #2563eb;
+  }
+  
+  .applicantBadge {
+    background-color: #fef2f2;
+    color: #dc2626;
+  }
+  
+  .closeButton {
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  
+  .closeButton:hover {
+    background-color: #f1f5f9;
+    color: #334155;
+  }
+  
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 1.5rem;
+    background-color: white;
+  }
+  
+  .tabButton {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .tabButton:hover {
+    color: #334155;
+  }
+  
+  .tabButton.active {
+    color: #6366f1;
+    border-bottom-color: #6366f1;
+  }
+  
+  .modalContent {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex-grow: 1;
+  }
+  
+  .detailCard {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .detailTitle {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: #1e293b;
+  }
+  
+  .detailGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  
+  .detailItem {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detailLabel {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+  }
+  
+  .detailValue {
+    font-weight: 500;
+    color: #334155;
+  }
+  
+  .resumeCard {
+    background-color: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .resumeInfo {
+    flex-grow: 1;
+  }
+  
+  .resumeText {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+  
+  .resumeActions {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .resumeButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .resumeButton:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+  }
+  
+  .skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .skillCard {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .skillName {
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+  
+  .skillExperience {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .skillBar {
+    height: 6px;
+    background-color: #6366f1;
+    border-radius: 3px;
+    flex-grow: 1;
+  }
+  
+  .skillYears {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom,
+  var(--light-blue),
+  var(--aqua));
+  background-size: 50% 100%;
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+
+.timelineDot {
+  position: absolute;
+  left: -1.6rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--light-blue);
+  border: 2px solid var(--aqua);
+}
+
+.timelineContent {
+  background: var(--aqua);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+  
+  .jobTitle {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+  }
+  
+  .companyName {
+    margin: 0 0 0.5rem 0;
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  
+  .jobDuration {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  
+  .jobDescription {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+  }
+  
+  .educationList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .educationCard {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .educationHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+  
+  .degreeName {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+  }
+  
+  .gpaBadge {
+    background-color: #ecfdf5;
+    color: #059669;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .schoolName {
+    margin: 0 0 0.5rem 0;
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  
+  .educationDuration {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+  
+  .companyCard {
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .companyHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .companyLogo {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: contain;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .companyInfo {
+    flex-grow: 1;
+  }
+  
+  .companyName {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #1e293b;
+  }
+  
+  .companyIndustry {
+    margin: 0.25rem 0 0 0;
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+  
+  .companyDescription {
+    color: #475569;
+    line-height: 1.6;
+  }
+  
+  .sectionTitle {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    color: #1e293b;
+  }
+  
+  .emptyState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: #64748b;
+    font-size: 0.95rem;
+  }

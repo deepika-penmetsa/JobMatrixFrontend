@@ -1,0 +1,317 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--white);
+  overflow-y: auto;
+}
+
+.leftPanel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.logo {
+  width: 20vw;
+  max-width: 400px;
+}
+
+.divider {
+  width: 2px;
+  background-color: var(--steel-blue);
+  height: 60%;
+  align-self: center;
+}
+
+.rightPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 9rem 1rem;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.signupText {
+  font-family: 'Glacial Indifference', 'Aileron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: normal;
+  color: var(--english-violet);
+  margin-bottom: 3rem;
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Image Upload Section */
+.imageUploadContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  gap: 0.5rem;
+  max-width: 10rem;
+  max-height: 10rem;
+}
+
+.uploadHint {
+  font-size: 0.8rem;
+  color: var(--steel-blue);
+  margin-bottom: 1rem;
+}
+
+/* Input Groups */
+.inputGroup {
+  position: relative;
+  width: 100%;
+}
+
+/* Inputs and Selects */
+.inputGroup input,
+.inputGroup select,
+.inputGroup textarea {
+  width: 100%;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+  border: 2px solid var(--steel-blue);
+  border-radius: 12px;
+  outline: none;
+  box-sizing: border-box;
+  background-color: transparent;
+  height: 42px;
+}
+
+.inputGroup textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.inputGroup input[type="date"] {
+  padding: 0.7rem 1rem;
+}
+
+/* Floating Labels */
+.floatingLabel {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  color: gray;
+  pointer-events: none;
+  transition: 0.3s ease-out;
+  font-size: 0.9rem;
+  transform: translateY(-50%);
+}
+
+.inputGroup input:focus ~ .floatingLabel,
+.inputGroup input:not(:placeholder-shown) ~ .floatingLabel,
+.inputGroup select:focus ~ .floatingLabel,
+.inputGroup select:not(:placeholder-shown) ~ .floatingLabel,
+.inputGroup textarea:focus ~ .floatingLabel,
+.inputGroup textarea:not(:placeholder-shown) ~ .floatingLabel {
+  top: 0;
+  font-size: 0.75rem;
+  color: var(--steel-blue);
+  background-color: var(--white);
+  padding: 0 0.3rem;
+  transform: translateY(-50%);
+}
+
+/* Password Visibility Icons */
+.passwordInput {
+  padding-right: 3rem !important;
+}
+
+.passwordIcons {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.eyeIcon {
+  color: var(--steel-blue);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* Buttons */
+.buttonGroup {
+  display: flex;
+  justify-content:space-around;
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+
+.button {
+  width: 75%;
+  font-style: normal;
+  font-size: 1rem;
+  border-radius: 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: normal;
+  background: linear-gradient(135deg, var(--steel-blue), var(--english-violet));
+  color: white;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, var(--steel-blue), var(--steel-blue) 40%, var(--english-violet));
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.secondaryButton {
+  width: 25%;
+  font-style: normal;
+  font-size: 1rem;
+  border-radius: 15px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: normal;
+  background: white;
+  color: var(--english-violet);
+  border: 1px solid var(--english-violet);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.secondaryButton:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  background: #f5f5f5;
+}
+
+.secondaryButton:active {
+  transform: scale(0.98);
+}
+
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.loadingDots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+/* Error Message */
+.errorMessage {
+  color: #d32f2f;
+  background-color: #fde8e8;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  margin-top: -0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .signupText {
+    font-size: 1.6rem;
+  }
+  .logo {
+    width: 25vw;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .leftPanel {
+    display: none;
+  }
+
+  .rightPanel {
+    width: 100%;
+    gap: 1rem;
+    padding: 1.5rem 20vh;
+    min-height: auto;
+  }
+
+  .form {
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .rightPanel::before {
+    content: "";
+    background-image: url("../../assets/logo.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 28vw;
+    height: 8vh;
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
