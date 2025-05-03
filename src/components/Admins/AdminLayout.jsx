@@ -14,6 +14,7 @@ import companiesActive from "../../assets/SideNavIcon-Images/companies-active.sv
 import companiesInactive from "../../assets/SideNavIcon-Images/companies-inactive.svg";
 import defaultUser from "../../assets/noprofilephoto.png";
 import { fetchUserData } from "../../Redux/userSlice";
+import { formatImageUrl } from '../../services/imageUtils';
 
 // Custom NavLink component that accepts refs
 const NavLinkWithRef = forwardRef(({ to, className, children, ...props }, ref) => (
@@ -119,9 +120,10 @@ const AdminLayout = () => {
                   {({ isActive }) => (
                       <>
                         <img
-                            src={userData?.user_profile_photo || defaultUser}
+                            src={formatImageUrl(userData?.user_profile_photo, defaultUser)}
                             alt="Profile"
                             className={styles.profilePic}
+                            onError={(e) => { e.target.src = defaultUser; }}
                         />
                         <span className={isActive ? styles.activeText : styles.inactiveText}>
                       {(() => {

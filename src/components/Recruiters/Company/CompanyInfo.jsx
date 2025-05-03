@@ -70,14 +70,22 @@ const CompanyInfo = () => {
     const handleSaveChanges = async () => {
         try {
             const formData = new FormData();
-            Object.keys(editedDetails).forEach(key => {
-                if (key !== 'company_image' && key !== 'company_industry') {
-                    formData.append(key, editedDetails[key]);
-                }
-            });
-
+            
+            // Add text fields to formData
+            if (editedDetails.company_name) {
+                formData.append('company_name', editedDetails.company_name);
+            }
+            
+            if (editedDetails.company_description) {
+                formData.append('company_description', editedDetails.company_description);
+            }
+            
+            // Handle the company image upload carefully
             if (companyImageFile) {
-                formData.append('company_image', companyImageFile);
+                // Rename the file to avoid path issues
+                const cleanFileName = companyImageFile.name.split('/').pop().split('\\').pop();
+                const newFile = new File([companyImageFile], cleanFileName, { type: companyImageFile.type });
+                formData.append('company_image', newFile);
             } else if (editedDetails.company_image === null) {
                 formData.append('company_image', '');
             }
@@ -85,7 +93,8 @@ const CompanyInfo = () => {
             const response = await updateCompanyDetails(formData);
 
             if (response.error) {
-                showToast(response.error.message || "Operation failed", "error");
+                console.error("Company update failed:", response.error);
+                showToast(response.error || "Operation failed", "error");
             } else {
                 dispatch(setCompany(response.data));
                 setCompanyData(prev => ({

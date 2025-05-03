@@ -11,6 +11,7 @@ import defaultUser from "../assets/noprofilephoto.png";
 import { fetchUserData } from '../Redux/userSlice';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef, useState } from "react";
+import { formatImageUrl } from '../services/imageUtils';
 
 const RecruiterSidenavBar = () => {
   const navigate = useNavigate();
@@ -118,9 +119,10 @@ const RecruiterSidenavBar = () => {
                 {({ isActive }) => (
                     <>
                       <img
-                          src={userData?.user_profile_photo || defaultUser}
+                          src={formatImageUrl(userData?.user_profile_photo, defaultUser)}
                           alt="Profile"
                           className={styles.profilePic}
+                          onError={(e) => { e.target.src = defaultUser; }}
                       />
                       <span className={isActive ? styles.activeText : styles.inactiveText} style={isActive?{color:'var(--blue)'}:{color:'var(--english-violet)'}}>
                     {(() => {

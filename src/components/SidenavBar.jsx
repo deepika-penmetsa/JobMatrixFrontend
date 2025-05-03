@@ -4,6 +4,7 @@ import logo from "../assets/logo.svg";
 import logoMini from "../assets/logo-icon.svg";
 import defaultUser from "../assets/noprofilephoto.png";
 import { useDispatch, useSelector } from "react-redux";
+import { formatImageUrl } from '../services/imageUtils';
 
 import bagActive from "../assets/SideNavIcon-Images/basil_bag-solid-active.svg";
 import bagInactive from "../assets/SideNavIcon-Images/basil_bag-solid-inactive.svg";
@@ -139,9 +140,10 @@ const SidenavBar = () => {
                 {({ isActive }) => (
                     <>
                       <img
-                          src={userData?.user_profile_photo || defaultUser}
+                          src={formatImageUrl(userData?.user_profile_photo, defaultUser)}
                           alt="Profile"
                           className={styles.profilePic}
+                          onError={(e) => { e.target.src = defaultUser; }}
                       />
                       <span className={isActive ? styles.activeText : styles.inactiveText} style={isActive?{color:'var(--blue)'}:{color:'var(--english-violet)'}}>
                     {(() => {

@@ -10,6 +10,7 @@ import { MdOutlinePersonSearch } from "react-icons/md";
 import { IoFilter } from "react-icons/io5";
 import UserDetailsModal from "./UserDetailsModal";
 import EditUserModal from "./EditUserModal";
+import { formatImageUrl } from '../../services/imageUtils';
 
 const AdminUsers = () => {
   const [users, setUsers] = useState([]);
@@ -284,8 +285,8 @@ const AdminUsers = () => {
                               <td>
                                 <div className={styles.userCell}>
                                   <img
-                                      src={user.user_profile_photo || defaultProfilePhoto}
-                                      alt={fullName}
+                                      src={formatImageUrl(user.user_profile_photo, defaultProfilePhoto)}
+                                      alt={`${user.user_first_name} ${user.user_last_name}`}
                                       className={styles.profileImage}
                                       onError={(e) => {
                                         e.target.src = defaultProfilePhoto;

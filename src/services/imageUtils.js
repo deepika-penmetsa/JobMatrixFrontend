@@ -2,8 +2,9 @@
  * Utility functions for handling images and S3 URLs
  */
 
-// Get the API base URL from environment variables
-const API_BASE_URL = import.meta.env.VITE_JOB_MATRIX_API_BASE_URL || '';
+// Default images for fallback
+export const DEFAULT_PROFILE_IMAGE = '/default-profile.png';
+export const DEFAULT_COMPANY_IMAGE = '/default-company.png';
 
 /**
  * Formats image URLs to handle both S3 and local development paths
@@ -12,25 +13,18 @@ const API_BASE_URL = import.meta.env.VITE_JOB_MATRIX_API_BASE_URL || '';
  * @returns {string} The properly formatted image URL
  */
 export const formatImageUrl = (imageUrl, fallbackImage = null) => {
+  // If imageUrl is null or undefined, return the fallback image
   if (!imageUrl) return fallbackImage;
   
-  // Check if it's already a full URL (starts with http or https)
+  // If it's already a full URL (starts with http:// or https://), return it as is
   if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
     return imageUrl;
   }
   
-  // If it's an S3 URL without protocol (amazonaws.com), add https
-  if (imageUrl.includes('amazonaws.com')) {
-    return imageUrl.startsWith('//') ? `https:${imageUrl}` : `https://${imageUrl}`;
-  }
-  
-  // For relative URLs from Django, prepend the API base URL
-  if (imageUrl.startsWith('/')) {
-    return `${API_BASE_URL}${imageUrl}`;
-  }
-  
-  // For other relative paths without leading slash
-  return `${API_BASE_URL}/${imageUrl}`;
+  // If we get here, something's wrong with the URL - the backend should have
+  // formatted it properly. Return the fallback image.
+  console.warn(`Invalid image URL format: ${imageUrl}`);
+  return fallbackImage;
 };
 
 /**

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from '../../styles/UserDetailsModal.module.css';
 import { FiX, FiDownload, FiExternalLink } from 'react-icons/fi';
+import { formatImageUrl } from '../../services/imageUtils';
 
 const UserDetailsModal = ({ user, onClose }) => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -64,9 +65,10 @@ const UserDetailsModal = ({ user, onClose }) => {
         <div className={styles.modalHeader}>
           <div className={styles.userHeader}>
             <img
-              src={user.user_profile_photo || '/default-profile.png'}
+              src={formatImageUrl(user.user_profile_photo, '/default-profile.png')}
               alt={`${user.user_first_name} ${user.user_last_name}`}
               className={styles.profileImage}
+              onError={(e) => { e.target.src = '/default-profile.png'; }}
             />
             <div className={styles.userTitle}>
               <h2>{`${user.user_first_name} ${user.user_last_name}`}</h2>
@@ -310,9 +312,10 @@ const UserDetailsModal = ({ user, onClose }) => {
                 <div className={styles.companyHeader}>
                   {user.company.company_image && (
                     <img
-                      src={user.company.company_image}
+                      src={formatImageUrl(user.company.company_image, '/default-company.png')}
                       alt={user.company.company_name}
                       className={styles.companyLogo}
+                      onError={(e) => { e.target.src = '/default-company.png'; }}
                     />
                   )}
                   <div className={styles.companyInfo}>

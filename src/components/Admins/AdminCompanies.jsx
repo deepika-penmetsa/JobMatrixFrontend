@@ -21,6 +21,7 @@ import { getAdminCompanies, deleteCompany } from "../../services/api";
 import classNames from "classnames";
 import { BiSolidBusiness } from "react-icons/bi";
 import {LuSearchX} from "react-icons/lu";
+import { formatImageUrl } from '../../services/imageUtils';
 
 const AdminCompanies = () => {
     const [companies, setCompanies] = useState([]);
@@ -326,7 +327,7 @@ const AdminCompanies = () => {
                                         <div className={styles.companyHeader}>
                                             <div className={styles.logoWrapper}>
                                                 <img
-                                                    src={company.company_image ? `http://localhost:8000/media/${company.company_image}` : defaultImage}
+                                                    src={formatImageUrl(company.company_image, defaultImage)}
                                                     alt={company.company_name}
                                                     className={styles.companyLogo}
                                                     onError={(e) => { e.target.src = defaultImage; }}
@@ -460,7 +461,7 @@ const AdminCompanies = () => {
                                         <div className={styles.companyProfile}>
                                             <div className={styles.profileImage}>
                                                 <img
-                                                    src={selectedCompany.company_image ? `http://localhost:8000/media/${selectedCompany.company_image}` : defaultImage}
+                                                    src={formatImageUrl(selectedCompany.company_image, defaultImage)}
                                                     alt={selectedCompany.company_name}
                                                     onError={(e) => { e.target.src = defaultImage; }}
                                                 />
@@ -541,9 +542,10 @@ const AdminCompanies = () => {
                                                                 <div className={styles.recruiterInfo}>
                                                                     {recruiter.profile_photo ? (
                                                                         <img
-                                                                            src={`http://localhost:8000/media/${recruiter.profile_photo}`}
+                                                                            src={formatImageUrl(recruiter.profile_photo, defaultImage)}
                                                                             alt={recruiter.name || 'Recruiter'}
                                                                             className={styles.avatarImage}
+                                                                            onError={(e) => { e.target.src = defaultImage; }}
                                                                         />
                                                                     ) : (
                                                                         recruiter.name ? recruiter.name.charAt(0).toUpperCase() : 'R'
