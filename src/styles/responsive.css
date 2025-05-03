@@ -1,0 +1,144 @@
+/* Global responsive fixes and cross-browser compatibility */
+
+/* Mobile-first approach */
+:root {
+  --mobile-breakpoint: 576px;
+  --tablet-breakpoint: 768px;
+  --desktop-breakpoint: 992px;
+  --large-desktop-breakpoint: 1200px;
+}
+
+/* Fix flexbox gap property in Safari */
+@supports not (gap: 1rem) {
+  .flex-container > * {
+    margin-right: var(--gap, 1rem);
+    margin-bottom: var(--gap, 1rem);
+  }
+  
+  .flex-container {
+    margin-right: calc(-1 * var(--gap, 1rem));
+    margin-bottom: calc(-1 * var(--gap, 1rem));
+  }
+}
+
+/* Fix for iOS input styling */
+input,
+textarea,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+/* Fix for Chrome autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Fix for Edge/IE overflow issues */
+@supports (-ms-ime-align: auto) {
+  .overflow-container {
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+}
+
+/* Basic responsive container */
+.responsive-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Media query breakpoints */
+@media (min-width: 576px) {
+  .responsive-container {
+    max-width: 540px;
+  }
+  
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    max-width: 720px;
+  }
+  
+  .tablet-only {
+    display: initial !important;
+  }
+  
+  .mobile-tablet-only {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .responsive-container {
+    max-width: 960px;
+  }
+  
+  .tablet-only {
+    display: none !important;
+  }
+  
+  .desktop-up {
+    display: initial !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-container {
+    max-width: 1140px;
+  }
+}
+
+/* Fix for mobile viewport height issues */
+.vh-100 {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Fix for Safari image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Fix for Firefox image rendering */
+@-moz-document url-prefix() {
+  img {
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Responsive images */
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better handling of touch events */
+@media (hover: none) {
+  .touch-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Fix for iOS scrolling */
+.ios-scroll-fix {
+  -webkit-overflow-scrolling: touch;
+} 

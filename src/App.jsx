@@ -1,4 +1,4 @@
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './components/SharedPages/LandingPage';
 import LoginPage from './components/SharedPages/LoginPage';
@@ -14,7 +14,9 @@ import AdminCompanies from "./components/Admins/AdminCompanies";
 import AdminSettings from "./components/Admins/AdminSettings";
 import ForgotPassword from './components/SharedPages/ForgotPassword';
 import ChangePassword from './components/SharedPages/ChangePassword';
+import { initResponsiveUtils } from './services/responsiveUtils';
 import './App.css';
+import './styles/responsive.css';
 
 function App() {
   const [formData, setFormData] = useState({
@@ -28,6 +30,12 @@ function App() {
     applicant_resume: null,
     admin_secret_key: "",
   });
+  
+  // Initialize responsive utilities
+  useEffect(() => {
+    const cleanup = initResponsiveUtils();
+    return cleanup; // Handle cleanup of event listeners
+  }, []);
 
   return (
     <Router>

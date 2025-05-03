@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom";
 import noBookmarksImage from '../../assets/NoBookmarksPage1.png';
 import ToastNotification from "../../components/ToastNotification";
 import { deleteBookmark, applyJob, getBookmarks } from "../../services/api";
+import { formatImageUrl } from "../../services/imageUtils";
 
 const BookmarksPage = () => {
   const [bookmarks, setBookmarks] = useState([]);
@@ -211,9 +212,10 @@ const BookmarksPage = () => {
               <div className={styles.cardHeader}>
                 <div className={styles.leftSection}>
                   <img
-                    src={job_details.company.company_image || defaultCompanyImage}
+                    src={formatImageUrl(job_details.company.company_image, defaultCompanyImage)}
                     alt={job_details.company.company_name}
                     className={styles.companyLogo}
+                    onError={(e) => { e.target.src = defaultCompanyImage; }}
                   />
                   <div className={styles.jobInfoSection}>
                     <span className={styles.jobInfoInnerSection}>

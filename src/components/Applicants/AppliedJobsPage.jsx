@@ -15,6 +15,7 @@ import {MdWork, MdList, MdSchool, MdStarRate, MdClose, MdCheckCircle} from 'reac
 import { MdOutlineAccessTime } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { getAppliedJobs } from "../../services/api";
+import { formatImageUrl } from "../../services/imageUtils";
 import ToastNotification from "../ToastNotification.jsx";
 import {GiCheckMark} from "react-icons/gi";
 import {FaFileCircleCheck, FaFileCircleXmark} from "react-icons/fa6";
@@ -180,9 +181,10 @@ const AppliedJobsPage = () => {
                 <div className={styles.cardHeader}>
                   <div className={styles.leftSection}>
                     <img
-                      src={job_details.company_details.company_image || defaultCompanyImage}
+                      src={formatImageUrl(job_details.company_details.company_image, defaultCompanyImage)}
                       alt={job_details.company_details.company_name}
                       className={styles.companyLogo}
+                      onError={(e) => { e.target.src = defaultCompanyImage; }}
                     />
                     <div className={styles.jobInfoSection}>
                       <span className={styles.jobInfoInnerSection}>

@@ -7,6 +7,7 @@ import {
   School, Code, LocationOn, Event, ExpandMore, ExpandLess,
   Search
 } from '@mui/icons-material';
+import { formatImageUrl } from '../../../services/imageUtils';
 import { userDetails, jobApplicantsStatus } from '../../../services/api';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SlBadge } from 'react-icons/sl';
@@ -44,15 +45,18 @@ const ApplicantsPanel = ({ job, onClose, applications, onStatusChange,
 
   const handleViewResume = (resumeUrl, e) => {
     e.stopPropagation();
-    window.open(resumeUrl, '_blank');
+    window.open(formatImageUrl(resumeUrl), '_blank');
   };
 
   const handleDownloadResume = (resumeUrl, applicantName, e) => {
     e.preventDefault();
     e.stopPropagation();
 
+    // Format the URL properly for S3 or other sources
+    const formattedUrl = formatImageUrl(resumeUrl);
+    
     // Start file download using fetch API
-    fetch(resumeUrl)
+    fetch(formattedUrl)
         .then(response => response.blob())
         .then(blob => {
           // Create a blob URL for the file
@@ -622,8 +626,12 @@ const ApplicantsPanel = ({ job, onClose, applications, onStatusChange,
                             <div className={styles.avatarImage}>
                               {application.applicant_details.profile_photo ? (
                                   <img
-                                      src={application.applicant_details.profile_photo}
+                                      src={formatImageUrl(application.applicant_details.profile_photo)}
                                       alt={application.applicant_details.full_name}
+                                      onError={(e) => {
+                                        e.target.style.display = 'none';
+                                        e.target.parentNode.innerHTML = `<span class="${styles.avatarInitials}">${getInitials(application.applicant_details.full_name)}</span>`;
+                                      }}
                                   />
                               ) : (
                                   <span className={styles.avatarInitials}>

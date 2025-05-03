@@ -10,6 +10,7 @@ import { ClearAll, History, LocationOn, Paid } from "@mui/icons-material";
 import { LuUpload, LuCheck } from "react-icons/lu";
 import { MdWork, MdList, MdSchool, MdStarRate } from 'react-icons/md';
 import { getAllJobs, addBookmark, applyJob } from "../../services/api";
+import { formatImageUrl } from "../../services/imageUtils";
 import ToastNotification from "../ToastNotification.jsx";
 
 const ExploreJobsPage = () => {
@@ -186,9 +187,10 @@ const ExploreJobsPage = () => {
                 <div className={styles.cardHeader}>
                   <div className={styles.leftSection}>
                     <img
-                      src={ `http://localhost:8000${job.company.company_image}` || defaultCompanyImage }
+                      src={formatImageUrl(job.company.company_image, defaultCompanyImage)}
                       alt={job.company.company_name}
                       className={styles.companyLogo}
+                      onError={(e) => { e.target.src = defaultCompanyImage; }}
                     />
                     <div className={styles.jobInfoSection}>
                       <span className={styles.jobInfoInnerSection}>
