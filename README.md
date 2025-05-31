@@ -6,7 +6,7 @@
 
 A powerful React-based web application designed to streamline job management and recruitment processes.  
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-FF5722?style=flat&logo=internet-explorer&logoColor=white)](https://jobmatrixapp.netlify.app/) [![Backend Repo](https://img.shields.io/badge/Backend_Repo-181717?style=flat&logo=github&logoColor=white)](https://github.com/RANJITH-REDDY-N/JobMatrixBackend)  
+[![Live Demo](https://img.shields.io/badge/Live_Demo-FF5722?style=flat&logo=internet-explorer&logoColor=white)](https://jobmatrixapp.netlify.app/) [![Backend Repo](https://img.shields.io/badge/Backend_Repo-181717?style=flat&logo=github&logoColor=white)](https://github.com/deepika-penmetsa/JobMatrixBackend)  
 
 ---
 
